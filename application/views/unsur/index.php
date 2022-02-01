@@ -15,7 +15,7 @@
 									                    <th>Nama Unsur</th>
 									                    <th>Kode Unsur</th>
                                                         <th>Keterangan</th>
-                                                        <th>Akses</th>
+                                                        <th>Aksi</th>
 									                </tr>
 									            </thead>
 									            <tbody>
@@ -27,7 +27,7 @@
 									                    <th>Nama Unsur</th>
 									                    <th>Kode Unsur</th>
                                                         <th>Keterangan</th>
-                                                        <th>Akses</th>
+                                                        <th>Aksi</th>
 									                </tr>
 									            </tfoot>
 													</table>
