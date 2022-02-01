@@ -8,6 +8,7 @@ class Cunsur extends MY_Controller {
         parent::__construct();
         $this->data['halaman']="Data Master Unsur";
         $this->data['js']= null;
+        $this->data['tombol_tambah']="<a href='".base_url()."tambahunsur'><button class='btn btn-info'><i class='icon-plus  bigger-125'></i><b> Tambah Data Unsur</b></button></a>";
         $this->data['active_hal'] = array('link'=>'datamaster','sub_link' => 'unsur');
         $this->load->model('unsur/munsur', 'munsur', TRUE);
     }
