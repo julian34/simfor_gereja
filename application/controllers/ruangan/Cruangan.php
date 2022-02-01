@@ -8,6 +8,7 @@ class Cruangan extends MY_Controller {
         parent::__construct();
         $this->data['halaman']="Data Master Ruangan";
         $this->data['js']= null;
+        $this->data['tombol_tambah']="<a href='base_url()/tambahruangan'><button class='btn btn-info'><i class='icon-plus  bigger-125'></i><b> Tambah Data Ruangan</b></button></a></a>";
         $this->data['active_hal'] = array('link'=>'datamaster','sub_link' => 'ruangan');
         $this->load->model('ruangan/mruangan', 'mruangan', TRUE);
     }

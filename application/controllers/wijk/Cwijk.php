@@ -8,6 +8,7 @@ class Cwijk extends MY_Controller {
         parent::__construct();
         $this->data['halaman']="Data Master Wijk";
         $this->data['js']= null;
+        $this->data['tombol_tambah']="<a href='base_url()/tambahwijk'><button class='btn btn-info'><i class='icon-plus  bigger-125'></i><b> Tambah Data Wijk</b></button></a></a>";
         $this->data['active_hal'] = array('link'=>'datamaster','sub_link' => 'wijk');
         $this->load->model('wijk/mwijk', 'mwijk', TRUE);
     }

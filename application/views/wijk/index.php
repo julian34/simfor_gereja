@@ -4,8 +4,6 @@
 												            echo $flash_data;
 												        }
 												        ?>
-												        <?= anchor('tambahwijk', '<button class="btn btn-info"><i class="icon-plus  bigger-125"></i><b> Tambah Data Wijk</b></button>') ?>
-												        <div class="space-10"></div>
                             
 							<div class="table-responsive">
 								<table class="table table-bordered" id="table-data" width="100%" cellspacing="0">
