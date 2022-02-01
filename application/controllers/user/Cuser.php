@@ -8,7 +8,7 @@ class Cuser extends MY_Controller {
         parent::__construct();
         $this->data['halaman']="Data Master User";
         $this->data['js']= null;
-        $this->data['tombol-tambah']="<a href='base_url()/tambahuser'><button class='btn btn-info'><i class='icon-plus  bigger-125'></i><b> Tambah Data Unsur</b></button></a></a>";
+        $this->data['tombol_tambah']="<a href='base_url()/tambahuser'><button class='btn btn-info'><i class='icon-plus  bigger-125'></i><b> Tambah Data Unsur</b></button></a></a>";
         $this->data['active_hal'] = array('link'=>'datamaster','sub_link' => 'user');
         $this->load->model('user/muser', 'muser', TRUE);
         $this->load->model('dropdown/mdropdown', 'dropdown', TRUE);
