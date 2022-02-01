@@ -8,6 +8,7 @@ class Cjenis_barang extends MY_Controller {
         parent::__construct();
         $this->data['halaman']="Data Master Jenis Barang";
         $this->data['js']= null;
+        $this->data['tombol_tambah']="<a href='base_url()/tambahjenis_barang'><button class='btn btn-info'><i class='icon-plus  bigger-125'></i><b> Tambah Data Jenis Barang</b></button></a></a>";
         $this->data['active_hal'] = array('link'=>'datamaster','sub_link' => 'jenis_barang');
         $this->load->model('jenis_barang/mjenis_barang', 'mjenis_barang', TRUE);
     }
