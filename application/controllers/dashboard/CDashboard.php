@@ -4,6 +4,7 @@ class Cdashboard extends MY_Controller {
         parent::__construct();
         $this->data['halaman']="Dashboard";
         $this->data['active_hal'] = array('link'=>'dashboard','sub_link' => '');
+        $this->data['tombol_tambah'] = '';
     }
     function index() {
         $this->data['main_container'] = 'dashboard/index';    	
