@@ -39,7 +39,6 @@ class Cwijk extends MY_Controller {
             $row = array();
             $row[] = $no;
                  $row[] = $field->nama_wijk;
-                 $row[] = $field->id_wijk;
                  $row[] = $field->keterangan;
 
                 $row[] = '<div class="hidden-phone visible-desktop btn-group action-buttons">'.

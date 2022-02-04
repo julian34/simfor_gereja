@@ -11,7 +11,6 @@
 									                <tr>
 									                    <th>No</th>
 									                    <th>Nama Wijk</th>
-									                    <th>Kode Wijk</th>
                                                         <th>Keterangan</th>
                                                         <th>Aksi</th>
 									                </tr>
@@ -23,7 +22,6 @@
 									                <tr>
 									                    <th>No</th>
 									                    <th>Nama Wijk</th>
-									                    <th>Kode Wijk</th>
                                                         <th>Keterangan</th>
                                                         <th>Aksi</th>
 									                </tr>
