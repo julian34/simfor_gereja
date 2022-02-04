@@ -178,7 +178,7 @@ class Mjemaat extends CI_Model
             'id_unsur'     => $this->input->post('id_unsur'),
             'status_baptis'     => $this->input->post('status_baptis'),
             'status_sidi'     => $this->input->post('status_sidi'),
-            'statu_nikah'     => $this->input->post('statu_nikah'),
+            'status_nikah'     => $this->input->post('status_nikah'),
             'keterangan'     => $this->input->post('keterangan')
 
 
@@ -240,7 +240,7 @@ class Mjemaat extends CI_Model
             'id_unsur'     => $this->input->post('id_unsur'),
             'status_baptis'     => $this->input->post('status_baptis'),
             'status_sidi'     => $this->input->post('status_sidi'),
-            'statu_nikah'     => $this->input->post('statu_nikah'),
+            'status_nikah'     => $this->input->post('status_nikah'),
             'keterangan'     => $this->input->post('keterangan')
         );
         $this->db->where('nik', $id);

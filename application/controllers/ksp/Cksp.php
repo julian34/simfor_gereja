@@ -11,6 +11,7 @@ class Cksp extends MY_Controller {
         $this->data['tombol_tambah']="<a href='".base_url()."tambahksp'><button class='btn btn-info'><i class='icon-plus  bigger-125'></i><b> Tambah Data KSP</b></button></a></a>";
         $this->data['active_hal'] = array('link'=>'datamaster','sub_link' => 'ksp');
         $this->load->model('ksp/mksp', 'mksp', TRUE);
+        $this->load->model('dropdown/mdropdown', 'dropdown', TRUE);
     }
 
     public function index($offset = 0) {
@@ -18,10 +19,10 @@ class Cksp extends MY_Controller {
         $this->data['js']= 'ksp/vjs';
         // $this->data['form_action'] = 'sekolah';
 
-        $ksp = $this->mksp->cari_semua();
+        $data = $this->mksp->cari_semua();
 
-        if ($ksp) {
-            $table = $this->mksp->buat_table($ksp);
+        if ($data) {
+            $table = $this->mksp->buat_table($data);
             $this->data['tabel_data'] = $table;
         } else {
             $this->data['pesan'] = 'Tidak Ada Data KSP';
@@ -39,8 +40,8 @@ class Cksp extends MY_Controller {
             $row = array();
             $row[] = $no;
                  $row[] = $field->nama_ksp;
-                 $row[] = $field->id_ksp;
-                 $row[] = $field->keterangan;
+                 $row[] = $field->nama_wijk;
+                //  $row[] = $field->keterangan;
 
                 $row[] = '<div class="hidden-phone visible-desktop btn-group action-buttons">'.
                 anchor('editksp/'.$field->id_ksp,'<button class="btn btn-mini btn-info"><i class="icon-pencil bigger-120"></i></button>')
@@ -66,6 +67,8 @@ class Cksp extends MY_Controller {
         public function tambah() {
         $this->data['main_container'] = 'ksp/vksp_form';
         $this->data['form_action'] = 'ksp/cksp/tambah';
+        $this->data['drwijk']           = $this->dropdown->wijk(); 
+        $this->data['drwijks']          = 0;
         if ($this->input->post('submit')) {
             if ($this->mksp->validasi_tambah()) {
                 if ($this->mksp->tambah()) {
@@ -86,6 +89,8 @@ class Cksp extends MY_Controller {
     public function edit($id = NULL) {
         $this->data['main_container'] = 'ksp/vksp_form';
         $this->data['form_action'] = 'ksp/cksp/edit/' . $id;
+        $this->data['drwijk']           = $this->dropdown->wijk();
+        $this->data['drwijks']          = $this->dropdown->ewijk($id);
         if (!empty($id)) {
             if ($this->input->post('submit')) {
                 if ($this->mksp->validasi_edit() == TRUE) {
@@ -96,13 +101,13 @@ class Cksp extends MY_Controller {
                     $this->load->view('template/template_backend',$this->data);  
                 }
             } else {
-                $ksp = $this->mksp->cari($id);
-                foreach ($ksp as $key => $value) {
+                $data = $this->mksp->cari($id);
+                foreach ($data as $key => $value) {
                     $this->data['form_value'][$key] = $value;
                 }
-                $this->session->set_userdata('id_ksp', $ksp->id_ksp);
-                $this->session->set_userdata('nama_ksp', $ksp->nama_ksp);
-                $this->session->set_userdata('keterangan', $ksp->keterangan);
+                $this->session->set_userdata('id_ksp', $data->id_ksp);
+                $this->session->set_userdata('nama_ksp', $data->nama_ksp);
+                $this->session->set_userdata('keterangan', $data->keterangan);
                 $this->load->view('template/template_backend',$this->data);  
             }
         } else {

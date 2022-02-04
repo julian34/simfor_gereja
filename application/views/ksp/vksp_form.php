@@ -22,6 +22,16 @@
                                         </div>
 
                                         <div class="form-group row">
+                                            <label class="control-label col-md-3">Wijk
+                                                <span class="required"> * </span>
+                                            </label>
+                                            <div class="col-md-5">
+                                                   <?= form_dropdown('id_wijk',$drwijk,$drwijks,'class ="form-control input-height"')?>
+                                                <span class="help-inline"><?php echo form_error('id_wijk', '<div class="help-inline red">', '</div>'); ?></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
                                             <label class="control-label col-md-3">Keterangan
                                                 <span class="required"> * </span>
                                             </label>

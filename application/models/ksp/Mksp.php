@@ -5,8 +5,8 @@ class Mksp extends CI_Model
     public $per_halaman = 10;
     public $offset      = 0;
 
-    var $column_order = array(null, 'nama_ksp','keterangan',null);
-    var $column_search = array('nama_ksp','keterangan');
+    var $column_order = array(null, 'nama_ksp','id_wijk',null);
+    var $column_search = array('nama_ksp','keterangan','nama_wijk');
     var $order = array('nama_ksp' => 'asc');
 
     public function __construct()
@@ -30,14 +30,15 @@ class Mksp extends CI_Model
          id="dataTable" width="100%" cellspacing="0;">');
         $this->table->set_template($tmpl);
 
-        $this->table->set_heading('No','Nama KSP','Keterangan','Aksi');
+        $this->table->set_heading('No','Nama KSP','Wijk','Keterangan');
         $no = 0 + $this->offset;
         foreach ($data as $row)
         {
             $this->table->add_row(
                 ++$no,
                 $row->nama_ksp,
-                $row->keterangan,
+                $row->id_wijk,
+                // $row->keterangan,
 
                 '<div class="hidden-phone visible-desktop btn-group action-buttons">'.
                 anchor('backend-sekolah-ubah/'.$row->id_ksp,'<button class="btn btn-mini btn-info"><i class="icon-pencil bigger-120"></i></button>')
@@ -55,8 +56,10 @@ class Mksp extends CI_Model
     //datatables server side
 
     private function _get_datatables_query()
+    
     {
-        $this->db->from($this->db_tabel);
+        $this->db->from($this->db_tabel)
+        ->join('wijk', 'wijk.id_wijk = ksp.id_wijk');
         $i = 0;
 
         foreach ($this->column_search as $key ) {
@@ -146,12 +149,15 @@ class Mksp extends CI_Model
 
             public function tambah()
     {
-        $ksp = array(
+        $data = array(
             'nama_ksp'     => $this->input->post('nama_ksp'),
+            'id_wijk'     => $this->input->post('id_wijk'),
             'keterangan'     => $this->input->post('keterangan')
 
         );
-        $this->db->insert($this->db_tabel, $ksp);
+        $this->db->insert($this->db_tabel, $data);
+
+
         if($this->db->affected_rows() > 0)
         {
             return TRUE;
@@ -196,13 +202,14 @@ class Mksp extends CI_Model
 
         public function edit($id)
     {
-        $ksp = array(
+        $data = array(
             'nama_ksp'     => $this->input->post('nama_ksp'),
+            'id_wijk'     => $this->input->post('id_wijk'),
             'keterangan'     => $this->input->post('keterangan')
 
         );
         $this->db->where('id_ksp', $id);
-        $this->db->update($this->db_tabel, $ksp);
+        $this->db->update($this->db_tabel, $data);
 
         if($this->db->affected_rows() > 0)
         {

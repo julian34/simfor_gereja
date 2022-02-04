@@ -11,8 +11,8 @@
 									                <tr>
 									                    <th>No</th>
 									                    <th>Nama KSP</th>
-									                    <th>Kode KSP</th>
-                                                        <th>Keterangan</th>
+									                    <th>Wijk</th>
+                                                        <!-- <th>Keterangan</th> -->
                                                         <th>Aksi</th>
 									                </tr>
 									            </thead>
@@ -23,8 +23,8 @@
 									                <tr>
 									                    <th>No</th>
 									                    <th>Nama KSP</th>
-									                    <th>Kode KSP</th>
-                                                        <th>Keterangan</th>
+									                    <th>Wijk</th>
+                                                        <!-- <th>Keterangan</th> -->
                                                         <th>Aksi</th>
 									                </tr>
 									            </tfoot>
