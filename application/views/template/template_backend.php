@@ -73,7 +73,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="<?=base_url()?>">
+                <a class="nav-link" href="<?=base_url()?>data_jemaat">
                     <i class="fas fa-fw fa-users"></i>
                     <span>Data Jemaat</span></a>
             </li>

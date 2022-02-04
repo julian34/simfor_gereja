@@ -110,6 +110,13 @@ $route['tambahbahan'] = 'bahan/Cbahan/tambah';
 $route['editbahan/(:num)'] = 'bahan/Cbahan/edit/$1';
 $route['hapusbahan/(:num)'] = 'bahan/Cbahan/hapus/$1';
 
+//data_jemaat
+$route['data_jemaat'] = 'data_jemaat/Cdata_jemaat';
+$route['datadata_jemaat'] = 'data_jemaat/Cdata_jemaat/get_data';
+$route['tambahdata_jemaat'] = 'data_jemaat/Cdata_jemaat/tambah';
+$route['editdata_jemaat/(:num)'] = 'data_jemaat/Cdata_jemaat/edit/$1';
+$route['hapusdata_jemaat/(:num)'] = 'data_jemaat/Cdata_jemaat/hapus/$1';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
