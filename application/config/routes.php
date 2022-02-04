@@ -111,11 +111,11 @@ $route['editbahan/(:num)'] = 'bahan/Cbahan/edit/$1';
 $route['hapusbahan/(:num)'] = 'bahan/Cbahan/hapus/$1';
 
 //data_jemaat
-$route['data_jemaat'] = 'data_jemaat/Cdata_jemaat';
-$route['datadata_jemaat'] = 'data_jemaat/Cdata_jemaat/get_data';
-$route['tambahdata_jemaat'] = 'data_jemaat/Cdata_jemaat/tambah';
-$route['editdata_jemaat/(:num)'] = 'data_jemaat/Cdata_jemaat/edit/$1';
-$route['hapusdata_jemaat/(:num)'] = 'data_jemaat/Cdata_jemaat/hapus/$1';
+$route['jemaat'] = 'data_jemaat/Cjemaat';
+$route['datajemaat'] = 'data_jemaat/Cjemaat/get_data';
+$route['tambahjemaat'] = 'data_jemaat/Cjemaat/tambah';
+$route['editjemaat/(:num)'] = 'data_jemaat/Cjemaat/edit/$1';
+$route['hapusjemaat/(:num)'] = 'data_jemaat/Cjemaat/hapus/$1';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

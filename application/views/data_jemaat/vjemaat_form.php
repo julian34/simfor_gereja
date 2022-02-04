@@ -33,6 +33,7 @@
                                                 <span class="help-inline"><?php echo form_error('nama_jemaat', '<div class="help-inline red">', '</div>'); ?></span>
                                             </div>
                                         </div>
+                                    </div>
 
                                     
                                     <div class="form-body">
@@ -45,6 +46,7 @@
                                                 <span class="help-inline"><?php echo form_error('jenis_kelamin', '<div class="help-inline red">', '</div>'); ?></span>
                                             </div>
                                         </div>
+                                    </div>
 
                                     
                                     <div class="form-body">
@@ -56,6 +58,7 @@
                                                 <input type="text" name="tempat_lahir" data-required="1" placeholder="Tempat Lahir..." value="<?= set_value('tempat_lahir', isset($form_value['tempat_lahir']) ? $form_value['tempat_lahir'] : '') ?>" class="form-control input-height" />
                                                 <span class="help-inline"><?php echo form_error('tempat_lahir', '<div class="help-inline red">', '</div>'); ?></span>
                                             </div>
+                                        </div>
                                         </div>
 
                                     
@@ -69,6 +72,7 @@
                                                 <span class="help-inline"><?php echo form_error('tanggal_lahir', '<div class="help-inline red">', '</div>'); ?></span>
                                             </div>
                                         </div>
+                                        </div>
                                     
                                     <div class="form-body">
                                         <div class="form-group row">
@@ -79,6 +83,7 @@
                                                 <input type="text" name="alamat" data-required="1" placeholder="Alamat..." value="<?= set_value('alamat', isset($form_value['alamat']) ? $form_value['alamat'] : '') ?>" class="form-control input-height" />
                                                 <span class="help-inline"><?php echo form_error('alamat', '<div class="help-inline red">', '</div>'); ?></span>
                                             </div>
+                                        </div>
                                         </div>
 
                                     
@@ -92,6 +97,7 @@
                                                 <span class="help-inline"><?php echo form_error('id_wijk', '<div class="help-inline red">', '</div>'); ?></span>
                                             </div>
                                         </div>
+                                        </div>
 
                                     
                                     <div class="form-body">
@@ -103,6 +109,7 @@
                                                 <input type="text" name="id_ksp" data-required="1" placeholder="KSP..." value="<?= set_value('id_ksp', isset($form_value['id_ksp']) ? $form_value['id_ksp'] : '') ?>" class="form-control input-height" />
                                                 <span class="help-inline"><?php echo form_error('id_ksp', '<div class="help-inline red">', '</div>'); ?></span>
                                             </div>
+                                        </div>
                                         </div>
 
                                     
@@ -116,6 +123,7 @@
                                                 <span class="help-inline"><?php echo form_error('id_unsur', '<div class="help-inline red">', '</div>'); ?></span>
                                             </div>
                                         </div>
+                                        </div>
 
                                     
                                     <div class="form-body">
@@ -127,6 +135,7 @@
                                                 <input type="text" name="status_baptis" data-required="1" placeholder="Status Baptis..." value="<?= set_value('status_baptis', isset($form_value['status_baptis']) ? $form_value['status_baptis'] : '') ?>" class="form-control input-height" />
                                                 <span class="help-inline"><?php echo form_error('status_baptis', '<div class="help-inline red">', '</div>'); ?></span>
                                             </div>
+                                        </div>
                                         </div>
 
                                     
@@ -140,6 +149,7 @@
                                                 <span class="help-inline"><?php echo form_error('status_sidi', '<div class="help-inline red">', '</div>'); ?></span>
                                             </div>
                                         </div>
+                                        </div>
 
                                     
                                     <div class="form-body">
@@ -152,6 +162,7 @@
                                                 <span class="help-inline"><?php echo form_error('status_nikah', '<div class="help-inline red">', '</div>'); ?></span>
                                             </div>
                                         </div>
+                                        </div>
 
                                     
                                     <div class="form-body">
@@ -163,6 +174,7 @@
                                                 <input type="text" name="keterangan" data-required="1" placeholder="Keterangan..." value="<?= set_value('keterangan', isset($form_value['keterangan']) ? $form_value['keterangan'] : '') ?>" class="form-control input-height" />
                                                 <span class="help-inline"><?php echo form_error('keterangan', '<div class="help-inline red">', '</div>'); ?></span>
                                             </div>
+                                        </div>
                                         </div>
                                  
 

@@ -73,7 +73,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="<?=base_url()?>data_jemaat">
+                <a class="nav-link" href="<?=base_url()?>jemaat">
                     <i class="fas fa-fw fa-users"></i>
                     <span>Data Jemaat</span></a>
             </li>
@@ -247,12 +247,12 @@
     <!-- Custom scripts for all pages-->
     <script src="<?=base_url()?>assets/sb-admin2/js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
+    <!-- Page level plugins
     <script src="<?=base_url()?>assets/sb-admin2/vendor/chart.js/Chart.min.js"></script>
 
-    <!-- Page level custom scripts -->
+     Page level custom scripts
     <script src="<?=base_url()?>assets/sb-admin2/js/demo/chart-area-demo.js"></script>
-    <script src="<?=base_url()?>assets/sb-admin2/js/demo/chart-pie-demo.js"></script>
+    <script src="<?=base_url()?>assets/sb-admin2/js/demo/chart-pie-demo.js"></script> -->
 
     <!-- Page level plugins -->
     <script src="<?=base_url()?>assets/sb-admin2/vendor/datatables/jquery.dataTables.min.js"></script>

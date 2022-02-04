@@ -1,5 +1,5 @@
 <?php 
-class Mdata_jemaat extends CI_Model
+class Mjemaat extends CI_Model
 {
     public $db_tabel    = 'data_jemaat';
     public $per_halaman = 10;

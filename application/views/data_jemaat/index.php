@@ -10,6 +10,7 @@
 									            <thead>
 									                <tr>
 									                    <th>No</th>
+									                    <th>NIK</th>
 									                    <th>Nama Jemaat</th>
 									                    <th>Jenis Kelamin</th>
 									                    <th>Tempat Lahir</th>
@@ -32,6 +33,7 @@
 									            <tfoot>
 									                <tr>
                                                     <th>No</th>
+                                                    <th>NIK</th>
 									                    <th>Nama Jemaat</th>
 									                    <th>Jenis Kelamin</th>
 									                    <th>Tempat Lahir</th>

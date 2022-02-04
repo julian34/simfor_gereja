@@ -10,7 +10,7 @@
             "order": [], 
              
             "ajax": {
-                "url": "<?php echo site_url('datadata_jemaat')?>",
+                "url": "<?php echo site_url('datajemaat')?>",
                 "type": "POST"
             },
  

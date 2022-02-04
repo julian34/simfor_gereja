@@ -1,6 +1,6 @@
 <?php
 
-class Cdata_jemaat extends MY_Controller {
+class Cjemaat extends MY_Controller {
 
     public $data;
 
@@ -8,9 +8,9 @@ class Cdata_jemaat extends MY_Controller {
         parent::__construct();
         $this->data['halaman']="Data Jemaat";
         $this->data['js']= null;
-        $this->data['tombol_tambah']="<a href='".base_url()."tambahdata_jemaat'><button class='btn btn-info'><i class='icon-plus  bigger-125'></i><b> Tambah Data Jemaat</b></button></a>";
-        $this->data['active_hal'] = array('link'=>'datamaster','sub_link' => 'data_jemaat');
-        $this->load->model('data_jemaat/mdata_jemaat', 'mdata_jemaat', TRUE);
+        $this->data['tombol_tambah']="<a href='".base_url()."tambahjemaat'><button class='btn btn-info'><i class='icon-plus  bigger-125'></i><b> Tambah Data Jemaat</b></button></a>";
+        // $this->data['active_hal'] = array('link'=>'datamaster','sub_link' => 'jemaat');
+        $this->load->model('data_jemaat/mjemaat', 'mjemaat', TRUE);
     }
 
     public function index($offset = 0) {
@@ -18,10 +18,10 @@ class Cdata_jemaat extends MY_Controller {
         $this->data['js']= 'data_jemaat/vjs';
         // $this->data['form_action'] = 'sekolah';
 
-        $id = $this->mdata_jemaat->cari_semua();
+        $id = $this->mjemaat->cari_semua();
 
         if ($id) {
-            $table = $this->mdata_jemaat->buat_table($id);
+            $table = $this->mjemaat->buat_table($id);
             $this->data['tabel_data'] = $table;
         } else {
             $this->data['pesan'] = 'Tidak Ada Data Jemaat';
@@ -31,21 +31,32 @@ class Cdata_jemaat extends MY_Controller {
 
     function get_data()
     {
-        $list = $this->mdata_jemaat->get_datatables();
+        $list = $this->mjemaat->get_datatables();
         $data = array();
         $no = $_POST['start'];
         foreach ($list as $field) {
             $no++;
             $row = array();
             $row[] = $no;
-                 $row[] = $field->nama_unsur;
-                 $row[] = $field->kode_unsur;
+                 $row[] = $field->nik;
+                 $row[] = $field->nama_jemaat;
+                 $row[] = $field->jenis_kelamin;
+                 $row[] = $field->tempat_lahir;
+                 $row[] = $field->tanggal_lahir;
+                 $row[] = $field->alamat;
+                 $row[] = $field->id_wijk;
+                 $row[] = $field->id_ksp;
+                 $row[] = $field->id_unsur;
+                 $row[] = $field->status_baptis;
+                 $row[] = $field->status_sidi;
+                 $row[] = $field->status_nikah;
                  $row[] = $field->keterangan;
 
+
                 $row[] = '<div class="hidden-phone visible-desktop btn-group action-buttons">'.
-                anchor('editdata_jemaat/'.$field->id_unsur,'<button class="btn btn-mini btn-info"><i class="icon-pencil bigger-120"></i></button>')
+                anchor('editjemaat/'.$field->nik,'<button class="btn btn-mini btn-info"><i class="icon-pencil bigger-120"></i></button>')
                 .
-                anchor('hapusdata_jemaat/'.$field->id_unsur,'<button class="btn btn-mini btn-danger"><i class="icon-trash bigger-120"></i></button>',array('onclick'=>"return confirm('Anda yakin akan menghapus data ini?')"))
+                anchor('hapusjemaat/'.$field->nik,'<button class="btn btn-mini btn-danger"><i class="icon-trash bigger-120"></i></button>',array('onclick'=>"return confirm('Anda yakin akan menghapus data ini?')"))
                 .
                 '<div>';
 
@@ -54,8 +65,8 @@ class Cdata_jemaat extends MY_Controller {
  
         $output = array(
             "draw" => $_POST['draw'],
-            "recordsTotal" => $this->mdata_jemaat->count_all(),
-            "recordsFiltered" => $this->mdata_jemaat->count_filtered(),
+            "recordsTotal" => $this->mjemaat->count_all(),
+            "recordsFiltered" => $this->mjemaat->count_filtered(),
             "data" => $data,
         );
         //output dalam format JSON
@@ -64,13 +75,13 @@ class Cdata_jemaat extends MY_Controller {
 
 
         public function tambah() {
-        $this->data['main_container'] = 'data_jemaat/vdata_jemaat_form';
-        $this->data['form_action'] = 'data_jemaat/cdata_jemaat/tambah';
+        $this->data['main_container'] = 'data_jemaat/vjemaat_form';
+        $this->data['form_action'] = 'data_jemaat/cjemaat/tambah';
         if ($this->input->post('submit')) {
-            if ($this->mdata_jemaat->validasi_tambah()) {
-                if ($this->mdata_jemaat->tambah()) {
+            if ($this->mjemaat->validasi_tambah()) {
+                if ($this->mjemaat->tambah()) {
                     $this->session->set_flashdata('pesan', '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">&times;</button>Proses tambah data berhasil.</div>');
-                    redirect('data_jemaat');
+                    redirect('jemaat');
                 } else {
                     $this->data['pesan'] = '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">&times;</button>Prose tambah data gagal.</div>';
                     $this->load->view('template/template_backend',$this->data);  
@@ -84,41 +95,50 @@ class Cdata_jemaat extends MY_Controller {
     }
 
     public function edit($id = NULL) {
-        $this->data['main_container'] = 'data_jemaat/vdata_jemaat_form';
-        $this->data['form_action'] = 'data_jemaat/cdata_jemaat/edit/' . $id;
+        $this->data['main_container'] = 'data_jemaat/vjemaat_form';
+        $this->data['form_action'] = 'data_jemaat/cjemaat/edit/' . $id;
         if (!empty($id)) {
             if ($this->input->post('submit')) {
-                if ($this->mdata_jemaat->validasi_edit() == TRUE) {
-                    $this->mdata_jemaat->edit($this->session->userdata('id_unsur'));
+                if ($this->mjemaat->validasi_edit() == TRUE) {
+                    $this->mjemaat->edit($this->session->userdata('id_unsur'));
                     $this->session->set_flashdata('pesan', '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">&times;</button>Proses update data berhasil.</div>');
-                    redirect('data_jemaat');
+                    redirect('jemaat');
                 } else {
                     $this->load->view('template/template_backend',$this->data);  
                 }
             } else {
-                $id = $this->mdata_jemaat->cari($id);
+                $id = $this->mjemaat->cari($id);
                 foreach ($id as $key => $value) {
                     $this->data['form_value'][$key] = $value;
                 }
+                $this->session->set_userdata('nik', $id->nik);
+                $this->session->set_userdata('nama_jemaat', $id->nama_jemaat);
+                $this->session->set_userdata('jenis_kelamin', $id->jenis_kelamin);
+                $this->session->set_userdata('tempat_lahir', $id->tempat_lahir);
+                $this->session->set_userdata('tanggal_lahir', $id->tanggal_lahir);
+                $this->session->set_userdata('alamat', $id->alamat);
+                $this->session->set_userdata('id_wijk', $id->id_wijk);
+                $this->session->set_userdata('id_ksp', $id->id_ksp);
                 $this->session->set_userdata('id_unsur', $id->id_unsur);
-                $this->session->set_userdata('nama_unsur', $id->nama_unsur);
-                $this->session->set_userdata('kode_unsur', $id->kode_unsur);
+                $this->session->set_userdata('statu_baptis', $id->statu_baptis);
+                $this->session->set_userdata('status_sidi', $id->status_sidi);
+                $this->session->set_userdata('status_nikah', $id->status_nikah);
                 $this->session->set_userdata('keterangan', $id->keterangan);
                 $this->load->view('template/template_backend',$this->data);  
             }
         } else {
-            redirect('data_jemaat');
+            redirect('jemaat');
         }
     }
 
     function hapus($id) {
         
-        if($this->mdata_jemaat->hapus($id)){
+        if($this->mjemaat->hapus($id)){
         $this->session->set_flashdata('pesan', '<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">&times;</button>Proses hapus data berhasil.</div>');
-        redirect('data_jemaat');
+        redirect('jemaat');
     }else {
         $this->session->set_flashdata('pesan', '<div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">&times;</button>Proses hapus data gagal.</div>');
-        redirect('data_jemaat');
+        redirect('jemaat');
     }
     }        
 
