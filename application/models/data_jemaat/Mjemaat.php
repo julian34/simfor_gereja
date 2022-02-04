@@ -4,9 +4,10 @@ class Mjemaat extends CI_Model
     public $db_tabel    = 'data_jemaat';
     public $per_halaman = 10;
     public $offset      = 0;
+    
 
     var $column_order = array('nik','nama_jemaat','jenis_kelamin','tempat_lahir','tanggal lahir','alamat','id_wijk','id_ksp','id_unsur','status_baptis','status_sidi','status_nikah','keterangan');
-    var $column_search = array('nik','nama_jemaat','id_wijk','id_ksp');
+    var $column_search = array('nik','nama_jemaat','nama_wijk','nama_ksp');
     var $order = array('nama_jemaat' => 'asc');
 
     public function __construct()
@@ -22,6 +23,7 @@ class Mjemaat extends CI_Model
                         ->get()
                         ->result();
     }
+
 
     public function buat_table($data)
     {
@@ -68,7 +70,12 @@ class Mjemaat extends CI_Model
 
     private function _get_datatables_query()
     {
-        $this->db->from($this->db_tabel);
+
+        
+        $this->db->from($this->db_tabel)
+            ->join('unsur', 'unsur.id_unsur = data_jemaat.id_unsur')
+            ->join('wijk', 'wijk.id_wijk = data_jemaat.id_wijk')
+            ->join('ksp', 'ksp.id_ksp = data_jemaat.id_ksp');
         $i = 0;
 
         foreach ($this->column_search as $key ) {

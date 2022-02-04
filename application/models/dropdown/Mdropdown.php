@@ -28,4 +28,17 @@ class Mdropdown extends CI_Model
         }
     }
 
+    public function dd_wijk(){
+        $query = $this->db->select('id_grup,nama_grup')
+                    ->from('grup')
+                    ->get()
+                    ->result();
+
+        foreach ($query as $row){
+            $arr[$row->id_grup] = $row->nama_grup; 
+        }
+
+        return $arr;
+}
+
 }

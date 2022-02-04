@@ -44,9 +44,9 @@ class Cjemaat extends MY_Controller {
                  $row[] = $field->tempat_lahir;
                  $row[] = $field->tanggal_lahir;
                  $row[] = $field->alamat;
-                 $row[] = $field->id_wijk;
-                 $row[] = $field->id_ksp;
-                 $row[] = $field->id_unsur;
+                 $row[] = $field->nama_wijk;
+                 $row[] = $field->nama_ksp;
+                 $row[] = $field->nama_unsur;
                  $row[] = $field->status_baptis;
                  $row[] = $field->status_sidi;
                  $row[] = $field->status_nikah;
@@ -120,7 +120,7 @@ class Cjemaat extends MY_Controller {
                 $this->session->set_userdata('id_wijk', $id->id_wijk);
                 $this->session->set_userdata('id_ksp', $id->id_ksp);
                 $this->session->set_userdata('id_unsur', $id->id_unsur);
-                $this->session->set_userdata('statu_baptis', $id->statu_baptis);
+                $this->session->set_userdata('status_baptis', $id->status_baptis);
                 $this->session->set_userdata('status_sidi', $id->status_sidi);
                 $this->session->set_userdata('status_nikah', $id->status_nikah);
                 $this->session->set_userdata('keterangan', $id->keterangan);
