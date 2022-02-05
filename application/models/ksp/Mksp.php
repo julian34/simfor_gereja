@@ -58,7 +58,8 @@ class Mksp extends CI_Model
     private function _get_datatables_query()
     
     {
-        $this->db->from($this->db_tabel)
+        $this->db->select('ksp.id_ksp, nama_ksp, ksp.keterangan, nama_wijk')
+			->from($this->db_tabel)
         ->join('wijk', 'wijk.id_wijk = ksp.id_wijk');
         $i = 0;
 
